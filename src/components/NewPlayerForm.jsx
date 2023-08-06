@@ -1,4 +1,4 @@
-const NewPlayerForm = () => {
+const NewPlayerForm = ({getPlayers}) => {
   const postNewPlayer = async (playerObj) => {
     try {
       const response = await fetch(
@@ -31,9 +31,10 @@ const NewPlayerForm = () => {
     teamId: 1358
   }
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    postNewPlayer(myNewPlayer)
+    await postNewPlayer(myNewPlayer);
+    getPlayers();
     console.log(e.target);
   }
 

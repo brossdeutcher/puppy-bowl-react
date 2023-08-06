@@ -7,12 +7,14 @@ import SinglePlayer from './components/SinglePlayer'
 
 function App() {
 
+  const [playerId, setPlayerId] = useState(0);
+
   return (
     <>
-      <AllPlayers />
+      {!playerId && <AllPlayers setPlayerId={setPlayerId} />}
       <NavBar />
       <NewPlayerForm />
-      <SinglePlayer />
+      {playerId && <SinglePlayer playerId={playerId} setPlayerId={setPlayerId} />}
     </>
   )
 }

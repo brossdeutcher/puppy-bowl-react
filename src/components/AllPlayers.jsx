@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const AllPlayers = () => {
+const AllPlayers = ({setPlayerId}) => {
 
   const [playerArr, setPlayerArr] = useState([]);
 
@@ -19,10 +19,10 @@ const AllPlayers = () => {
     <>
       <h1>AllPlayers</h1>
       {playerArr.map((player) =>
-        <>
+        <div className="listed-player" onClick={() => setPlayerId(player.id)}>
           <p>{player.name}</p>
           <img src={player.imageUrl} alt={player.name} />
-        </>
+        </div>
       )}
     </>
   );

@@ -6,11 +6,15 @@ const AllPlayers = ({setPlayerId}) => {
 
   useEffect(() => {
     const getPlayers = async () => {
+      try {
       const response = await fetch("https://fsa-puppy-bowl.herokuapp.com/api/3206-fsa-et-web-ft-sf/players");
       const result = await response.json();
       const players = result.data.players;
       console.log(players);
       setPlayerArr(players);
+      } catch (err) {
+        console.error(err);
+      }
     };
     getPlayers();
   }, []);

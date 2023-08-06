@@ -11,10 +11,10 @@ function App() {
 
   return (
     <>
-      {!playerId && <AllPlayers setPlayerId={setPlayerId} />}
       <NavBar />
-      <NewPlayerForm />
+      {!playerId && <AllPlayers setPlayerId={setPlayerId} />}
       {playerId && <SinglePlayer playerId={playerId} setPlayerId={setPlayerId} />}
+      <NewPlayerForm />
     </>
   )
 }
